@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title></title>
+
+        <link href="lib/ionic/css/ionic.css" rel="stylesheet"/>
+
+        <!-- ionic/angularjs js -->
+        <script src="lib/ionic/js/ionic.bundle.js"></script>
+        <script src="lib/ionic/js/angular/angular-resource.js"></script>
+
+        <!-- cordova script (this will be a 404 during development) -->
+        <script src="cordova.js"></script>        
+        <script type="text/javascript" src="PushNotification.js"></script>
+        
+        <script type="text/javascript" src="js/configuration.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>        
+        <script type="text/javascript">
+
+            var ready = false;
+            function onNotificationGCMEvent(e) {
+
+                if (!ready) {
+                    setTimeout(function() {
+                        onNotificationGCMEvent(e);
+                    }, 1000);
+                    return;
+                }
+
+                try {
+                    var elem = angular.element(document.querySelector('[ng-controller]'));
+                    var injector = elem.injector();
+                    var notificationService = injector.get('NotificationService');
+                    notificationService.handleNotification(e);
+                } catch (e) {
+                    alert(e);
+                }
+            }
+
+            window.ionic.Platform.ready(function() {
+                angular.bootstrap(document, ['PushNotificationsApp']);
+                ready = true;                                
+            });
+
+
+        </script>
+        <style>
+            body {
+                cursor: url('http://ionicframework.com/img/finger.png'), auto;
+            }
+        </style>
+    </head>
+    <body ng-controller="AppController">
+
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">Ionic, Cordova & Push Notifications</h1>
+    </ion-header-bar>
+
+    <ion-content>
+        <div class="row">
+            <div class="col "><i class="{{status.networkicon}}"></i> Network status</div>
+        </div>
+        <div class="row">
+            <div class="col"><i class="{{status.thirddpartyservericon}}"></i> 3rd party server</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="button button-outline {{status.button.disabled}} {{status.button.style}} ion-paper-airplane button-small" ng-click="sendNotification()"> Send notification to myself</button>
+            </div>
+        </div>        
+    </ion-content>
+    <div class="bar bar-footer bar-light">
+        <div class="title"><span class="{{status.style}}">{{status.text}}</span></div>
+    </div>
+
+</body>    
+</html>
