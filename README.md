@@ -2,6 +2,7 @@
 
 ## Steps: ##
 
+* edit /www/js/configuration.js file
 * cordova platform add android
 * cordova plugin add https://github.com/phonegap-build/PushPlugin.git
 * cordova plugin add org.apache.cordova.network-information
