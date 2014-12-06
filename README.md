@@ -19,3 +19,8 @@ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device
 ```
 cordova run android
 ```
+
+## Tutorial (Spanish) ##
+[Phonegap/Cordova y las Notificaciones Push](http://www.adictosaltrabajo.com/tutoriales/tutoriales.php?pagina=PhonegapNotificacionesPush)
+
+![](http://www.adictosaltrabajo.com/tutoriales/PhonegapNotificacionesPush/appforegroundnotification.png)
