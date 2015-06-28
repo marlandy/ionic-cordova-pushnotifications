@@ -23,4 +23,4 @@ cordova run android
 ## Tutorial (Spanish) ##
 [Phonegap/Cordova y las Notificaciones Push](http://www.adictosaltrabajo.com/tutoriales/tutoriales.php?pagina=PhonegapNotificacionesPush)
 
-![](http://www.adictosaltrabajo.com/tutoriales/PhonegapNotificacionesPush/appforegroundnotification.png)
+![](http://www.adictosaltrabajo.com/wp-content/uploads/tutorial-data/PhonegapNotificacionesPush/appforegroundnotification.png)
